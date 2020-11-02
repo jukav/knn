@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 # Aplications for data analysis
-# 1. Exersice
 
 # Code is modified from website: 
 # https://machinelearningmastery.com/tutorial-to-implement-k-nearest-neighbors-in-python-from-scratch/
@@ -18,9 +14,6 @@ def euclideanDistance(instance1, instance2, length): #define function
     for x in range(length): # calculate distances
         distance += pow((instance1[x] - instance2[x]), 2)
     return math.sqrt(distance) # return value
-
-
-# In[2]:
 
 
 # get neighbors from training set
@@ -38,9 +31,6 @@ def getNeighbors(trainingSet, testInstance, k): # define function
     return neighbors # return neighbors
 
 
-# In[3]:
-
-
 import operator
 def getResponse(neighbors):
     classVotes = {}
@@ -53,10 +43,6 @@ def getResponse(neighbors):
     sortedVotes = sorted(classVotes.items(), key=operator.itemgetter(1), reverse=True)
     return sortedVotes[0][0]
 
-
-# In[4]:
-
-
 # calculate prediction accuracy
 def getAccuracy(testSet, predictions): # define function
     correct = 0
@@ -65,21 +51,13 @@ def getAccuracy(testSet, predictions): # define function
             correct += 1
     return (correct/float(len(testSet))) * 100.0 # return prediction accuracy percent
 
-
-# In[5]:
-
-
 # read iris- file
 import csv
 with open('iris.data.txt', 'r') as csvfile:
     lines = csv.reader(csvfile)
     for row in lines:
         print (', '.join(row))
-
-
-# In[6]:
-
-
+        
 # split function to devide data to train and test set
 import csv
 import random
@@ -94,11 +72,7 @@ def loadDataset(filename, split, trainingSet=[] , testSet=[]): # define function
                 trainingSet.append(dataset[x])
             else:
                 testSet.append(dataset[x])
-
-
-# In[7]:
-
-
+                
 # load iris data
 trainingSet=[]
 testSet=[]
@@ -106,10 +80,6 @@ loadDataset('iris.data.txt', 1, trainingSet, testSet)
 print ("Train: " + repr(len(trainingSet)))
 print ("Test: " + repr(len(testSet)))
 dataSet=trainingSet
-
-
-# In[8]:
-
 
 # cross validation for dataset
 from random import seed # import needed modules
@@ -132,10 +102,6 @@ def cross_validation_split(dataset, folds=3): # define fuction
 seed(1)
 folds = cross_validation_split(dataSet,10) # call function
 #print(folds)
-
-
-# In[9]:
-
 
 # calculate test error for predictions with crossvalidation
 maccur=0
@@ -160,9 +126,6 @@ print('Prediction mean accuracy procent:')
 print(maccur/l)
 
 
-# In[10]:
-
-
 # Prediction accuracy with cross validation (10 fold) wih different k-values
 #
 # k=3    accuracy: 95,71 %
@@ -175,7 +138,6 @@ print(maccur/l)
 
 
 
-# In[ ]:
 
 
 
