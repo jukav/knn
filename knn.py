@@ -134,16 +134,11 @@ print(maccur/l)
 # k=6    accuracy: 97,86 %
 # k=7    accuracy: 97,86 %
 # k=8    accuracy: 97,86 %
-# k=9    accucacy: 97,14 %"
+# k=9    accucacy: 97,14 %
 
 
 
 
-
-
-
-
-# In[ ]:
 
 
 
